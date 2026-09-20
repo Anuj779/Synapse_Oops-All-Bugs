@@ -1,0 +1,13 @@
+order_id,destination,location,weight_kg,window_start,delivery_deadline,service_time,priority,region
+O01,Lonavala,"{""lat"": 18.7546, ""lon"": 73.4062}",650,0,115.0,10.0,1,corridor
+O02,Khopoli,"{""lat"": 18.7888, ""lon"": 73.3433}",900,0,130.0,10.0,1,corridor
+O03,Khalapur,"{""lat"": 18.8348, ""lon"": 73.2804}",750,0,145.0,10.0,1,corridor
+O04,Panvel,"{""lat"": 18.9894, ""lon"": 73.1175}",1100,0,175.0,10.0,1,corridor
+O05,Kalamboli,"{""lat"": 19.0328, ""lon"": 73.1012}",800,0,193.0,10.0,1,corridor
+O06,Taloja,"{""lat"": 19.0715, ""lon"": 73.1132}",950,0,200.0,10.0,1,corridor
+O07,Belapur,"{""lat"": 19.0189, ""lon"": 73.0395}",700,0,201.0,10.0,1,corridor
+O08,Nerul,"{""lat"": 19.033, ""lon"": 73.0181}",850,0,210.0,10.0,1,corridor
+O09,Vashi,"{""lat"": 19.0771, ""lon"": 72.9986}",1000,0,220.0,10.0,1,corridor
+O10,Turbhe,"{""lat"": 19.075, ""lon"": 73.017}",600,0,225.0,10.0,2,corridor
+O11,Airoli,"{""lat"": 19.1579, ""lon"": 72.9936}",800,0,245.0,10.0,2,corridor
+O12,Thane,"{""lat"": 19.2183, ""lon"": 72.9781}",900,0,260.0,10.0,2,corridor

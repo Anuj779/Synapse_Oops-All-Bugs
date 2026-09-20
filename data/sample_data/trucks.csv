@@ -1,0 +1,6 @@
+truck_id,capacity_kg,current_location,fuel_efficiency_kmpl,operating_cost_per_km,availability,forbidden_regions
+T1,4000,"{""lat"": 18.6298, ""lon"": 73.7997}",5.5,9.0,True,[]
+T2,3500,"{""lat"": 18.6298, ""lon"": 73.7997}",6.0,8.0,True,[]
+T3,3000,"{""lat"": 18.6298, ""lon"": 73.7997}",6.5,7.0,True,[]
+T4,2500,"{""lat"": 18.6298, ""lon"": 73.7997}",7.0,6.0,True,[]
+T5,4500,"{""lat"": 18.6298, ""lon"": 73.7997}",5.0,10.0,True,[]
