@@ -1,8 +1,8 @@
-Current Phase: 15 — GitHub delivery of the verified existing prototype
+Current Phase: 16 - React UI rebuild complete and ready to push
 Current Feature: complete offline Streamlit/FastAPI prototype with automatic recovery
 Last Verified Test: fresh locked environment and clean source copy: 22 tests passed (21.36s); full demo passed; Streamlit startup health passed; pip check passed.
 Known Issue: third-party deprecation warnings; optional live Valhalla not deployed/tested (adapter/cache/outage behavior tested)
-Next Action: verify initial push to main at Anuj779/Synapse_Oops-All-Bugs. UI redesign for Vercel is a subsequent phase, per user clarification.
+Next Action: commit and push the Vercel-ready React interface; then deploy the Python API and connect Vercel with BACKEND_API_URL.
 Architecture Decisions: Python/FastAPI/Streamlit; OR-Tools routing; XGBoost ETA with explicit uncertainty; SQLite plan/event history; offline matrix fallback
 Do-Not-Change Constraints: risk must constrain decisions; simulated data labeled; bounded loops; no paid dependency; no push before GitHub URL; preserve parent repository work
 
@@ -25,3 +25,5 @@ Checkpoints:
 Local services: Streamlit http://127.0.0.1:8501 ; FastAPI http://127.0.0.1:8000/docs
 Latest simulated smoke: baseline INR 16809.05 / risk 35.50%; Balanced INR 15407.50 / risk 8.56%; Reliable INR 18341.64 / risk 4.29%; recovered INR 15986.17 / risk 8.56%. Bounded heuristic output may vary slightly by run.
 GitHub delivery: target inspected and empty; isolated project Git history; 47 source/data/documentation files reviewed; no environments, logs, credentials or generated model artifacts staged.
+
+React checkpoint: Next.js 16 and Fluent UI operations workspace; build and lint pass; 0 npm vulnerabilities; desktop and 390x844 mobile layouts inspected; live breakdown recovery verified against FastAPI.

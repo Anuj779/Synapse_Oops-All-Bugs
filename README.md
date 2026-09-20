@@ -1,5 +1,7 @@
 # Adaptive Fleet AI
 
+> **React interface:** A Vercel-ready Next.js operations workspace is available in [web/](web/README.md). The verified Streamlit interface remains available for the original offline demo.
+
 **Risk-Budgeted Joint Route & Load Optimization** · Synapse 1.0 · AI in Automation
 
 Problem Statement #2: “Intelligent Route & Load Optimization for Logistics Fleets: Design an AI system that optimizes delivery routes and load distribution across a fleet of trucks, factoring in fuel efficiency, delivery windows, traffic, and vehicle capacity, reducing cost and emissions per trip.”

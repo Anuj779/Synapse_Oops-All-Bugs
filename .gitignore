@@ -9,3 +9,7 @@ __pycache__/
 artifacts/
 *.log
 .streamlit/secrets.toml
+web/node_modules/
+web/.next/
+web/.vercel/
+web/.env.local

@@ -1,0 +1,9 @@
+export type RiskMode = "Economy" | "Balanced" | "Reliable";
+export type Location = { lat: number; lon: number };
+export type Truck = { truck_id: string; capacity_kg: number; current_location: Location; fuel_efficiency_kmpl: number; operating_cost_per_km: number; availability: boolean; forbidden_regions: string[] };
+export type Order = { order_id: string; destination: string; location: Location; weight_kg: number; window_start: number; delivery_deadline: number; service_time: number; priority: number; region: string };
+export type Scenario = { trucks: Truck[]; orders: Order[]; conditions: { traffic_severity: number; weather: number; disruption_factor: number }; simulated: boolean };
+export type Stop = { order_id: string; eta_minutes: number; delay_risk: number };
+export type FleetRoute = { truck_id: string; order_ids: string[]; stops: Stop[]; load_kg: number; distance_km: number; empty_km: number; fuel_litres: number; cost_inr: number; co2_kg: number };
+export type Plan = { kind: string; routes: FleetRoute[]; accepted: boolean; reasons: string[]; risk_budget: number; metrics: Record<string, number>; iterations: Array<Record<string, unknown>>; explanations: string[]; routing_mode: string; elapsed_seconds: number };
+export type BreakdownEvent = { type: string; truck_id: string; affected_order_ids: string[]; remaining_capacity_kg: number; remaining_trucks: string[]; requires_reoptimization: boolean; stranded_orders: number; timing: string };
