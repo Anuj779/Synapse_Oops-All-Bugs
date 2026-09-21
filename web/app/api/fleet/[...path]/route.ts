@@ -2,6 +2,9 @@ import { NextRequest } from "next/server";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+export const maxDuration = 60;
+
+const UPSTREAM_TIMEOUT_MS = 55_000;
 const ALLOWED = new Set(["health", "demo", "baseline", "optimize", "breakdown", "reoptimize", "monitor"]);
 
 async function forward(request: NextRequest, context: { params: Promise<{ path: string[] }> }) {
@@ -10,7 +13,12 @@ async function forward(request: NextRequest, context: { params: Promise<{ path: 
   if (!ALLOWED.has(endpoint)) return Response.json({ detail: "Unknown fleet endpoint." }, { status: 404 });
   const backend = (process.env.BACKEND_API_URL || "http://127.0.0.1:8000").replace(/\/$/, "");
   const headers = new Headers({ Accept: "application/json" });
-  const init: RequestInit = { method: request.method, headers, cache: "no-store", signal: AbortSignal.timeout(20_000) };
+  const init: RequestInit = {
+    method: request.method,
+    headers,
+    cache: "no-store",
+    signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
+  };
   if (request.method !== "GET" && request.method !== "HEAD") {
     headers.set("Content-Type", "application/json");
     init.body = await request.text();
@@ -18,8 +26,19 @@ async function forward(request: NextRequest, context: { params: Promise<{ path: 
   try {
     const response = await fetch(`${backend}/${endpoint}`, init);
     return new Response(await response.text(), { status: response.status, headers: { "Content-Type": response.headers.get("Content-Type") || "application/json" } });
-  } catch {
-    return Response.json({ detail: "The optimization service is unavailable. Start FastAPI locally or set BACKEND_API_URL in Vercel." }, { status: 503 });
+  } catch (error) {
+    const timedOut = error instanceof Error && (error.name === "TimeoutError" || error.name === "AbortError");
+    return Response.json(
+      {
+        detail: timedOut
+          ? "The optimization service is still waking up. Please try again in a moment."
+          : "The optimization service is temporarily unavailable.",
+      },
+      {
+        status: timedOut ? 504 : 503,
+        headers: { "Cache-Control": "no-store" },
+      },
+    );
   }
 }
 
